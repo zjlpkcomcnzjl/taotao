@@ -17,18 +17,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-<!-- 加载spring配置文件 
-		1.如果加载jar包配置文件，需要如下加载方式：classpath*:applicatonContext-*.xml
-		2.把配置文件全部放入web项目。
-		加载方式：classpath：applicationContext-*.xml(使用MAVEN内置tomcat插件)
-	-->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext-*.xml</param-value>
-	</context-param>
 	<!-- 加载springmvc配置文件 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
@@ -42,4 +30,15 @@
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- log4j -->
+	<listener>
+   		<listener-class>
+   			org.springframework.web.util.Log4jConfigListener
+ 		</listener-class>
+ 	</listener>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
 </web-app>

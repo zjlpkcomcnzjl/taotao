@@ -51,11 +51,39 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<!-- dubbo相关 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+				<exclusions>
+			        <exclusion>
+			            <artifactId>spring</artifactId>
+			            <groupId>org.springframework</groupId>
+			        </exclusion>
+			    </exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
 			<!-- 依赖dao -->
 			<dependency>
 				<groupId>com.taotao</groupId>
 	    		<artifactId>taotao-manager-dao</artifactId>
 	    		<version>0.0.1-SNAPSHOT</version>			
 			</dependency>
+			<dependency>
+				<groupId>com.taotao</groupId>
+	    		<artifactId>taotao-manager-interface</artifactId>
+	    		<version>0.0.1-SNAPSHOT</version>			
+			</dependency>
 	</dependencies>
+	<packaging>war</packaging>
 </project>

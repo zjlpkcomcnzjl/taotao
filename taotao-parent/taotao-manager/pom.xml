@@ -11,8 +11,20 @@
   	<module>taotao-manager-pojo</module>
   	<module>taotao-manager-dao</module>
   	<module>taotao-manager-service</module>
-  	<module>taotao-manager-web</module>
+  	<module>taotao-manager-interface</module>
   </modules>
   
-  
+   <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8881</port>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+  </build>
 </project>
