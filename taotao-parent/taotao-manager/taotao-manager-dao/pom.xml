@@ -47,6 +47,15 @@
 	    		<artifactId>taotao-manager-pojo</artifactId>
 	    		<version>0.0.1-SNAPSHOT</version>			
 			</dependency>
-
 	</dependencies>
+	
+<!-- 	<build> -->
+<!-- 		<directory>src/main/java</directory> -->
+<!-- 		<resources> -->
+<!-- 			<resource> -->
+<!-- 				<includes>**/*.xml</includes> -->
+<!-- 				<includes></includes> -->
+<!-- 			</resource> -->
+<!-- 		</resources> -->
+<!-- 	</build> -->
 </project>

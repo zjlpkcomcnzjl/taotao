@@ -1,4 +1,4 @@
-package com.taotao.domain;
+package com.taotao.pojo;
 
 public class TbOrderItem {
     private String id;

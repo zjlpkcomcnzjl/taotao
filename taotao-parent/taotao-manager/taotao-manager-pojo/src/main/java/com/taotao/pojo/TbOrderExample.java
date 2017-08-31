@@ -1,4 +1,4 @@
-package com.taotao.domain;
+package com.taotao.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;

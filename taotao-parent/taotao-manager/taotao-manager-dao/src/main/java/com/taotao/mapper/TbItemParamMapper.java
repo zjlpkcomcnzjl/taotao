@@ -1,7 +1,7 @@
 package com.taotao.mapper;
 
-import com.taotao.domain.TbItemParam;
-import com.taotao.domain.TbItemParamExample;
+import com.taotao.pojo.TbItemParam;
+import com.taotao.pojo.TbItemParamExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
