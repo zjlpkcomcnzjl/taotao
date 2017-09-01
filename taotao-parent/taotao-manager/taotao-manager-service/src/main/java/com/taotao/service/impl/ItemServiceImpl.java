@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
 		//7.获取分页信息
 		System.out.println("总页数:"+pageInfo.getPages());
 		System.out.println("总记录数:"+pageInfo.getTotal());
-		
+		System.out.println(111111);
 		return item;
 	}
 
