@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 public class EasyUIResult implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long total;
 	private List<?> rows;
 	public Long getTotal() {
@@ -17,6 +21,6 @@ public class EasyUIResult implements Serializable{
 	}
 	public void setRows(List<?> rows) {
 		this.rows = rows;
-	}
+	}	
 
 }
