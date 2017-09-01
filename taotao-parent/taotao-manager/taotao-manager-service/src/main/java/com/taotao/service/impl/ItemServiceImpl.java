@@ -17,7 +17,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private TbItemMapper itemMapper;
-	
+	//张加娄
 	@Override
 	public TbItem findItemByID(Long itemId) {
 		
