@@ -36,6 +36,7 @@
        <property name="mapperLocations">
         	<array>
         		<value>classpath:sqlmap/*.xml</value>
+        		<value>classpath:sqlMapConfig.xml</value>
         	</array>
        </property>
 	</bean>

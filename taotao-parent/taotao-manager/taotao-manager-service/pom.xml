@@ -73,6 +73,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient.version}</version>
 			</dependency>
+			<!-- 单元测试 -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+<!-- 				<scope>test</scope> -->
+			</dependency>
 			<!-- 依赖dao -->
 			<dependency>
 				<groupId>com.taotao</groupId>

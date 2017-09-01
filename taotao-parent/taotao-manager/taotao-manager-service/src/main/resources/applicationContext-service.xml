@@ -48,7 +48,7 @@
 	</aop:config> 
 	<!-- 发布服务：把接口service发布Zookeeper注册中心 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="hubin-manager-service"/>
+	<dubbo:application name="taotao-manager-service"/>
 	<!-- 使用multicast广播注册中心暴露服务地址 -->
 	<!-- <dubbo:registry address="multicast://224.5.6.7:1234"/> -->
 	<!-- 使用dubbo通过Zookeeper协议注册服务 -->
@@ -58,6 +58,7 @@
     <!-- 声明需要暴露的服务接口 -->
     <!-- 创建需要发布对象-->
     <bean id="itemServiceImpl" class="com.taotao.service.impl.ItemServiceImpl"></bean>
+    
    	<!-- 发布服务 -->
     <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" />
 

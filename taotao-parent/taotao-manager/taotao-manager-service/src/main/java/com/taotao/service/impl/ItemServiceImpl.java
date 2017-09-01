@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -29,6 +31,17 @@ public class ItemServiceImpl implements ItemService {
 		if(itemList!=null && itemList.size()>0){
 			item = itemList.get(0);
 		}
+		
+		PageHelper.startPage(1, 10);
+		//5.查询
+		List<TbItem> list = itemMapper.selectByExample(example);
+		
+		//6.创建pageInfo对象
+		PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(list);
+		
+		//7.获取分页信息
+		System.out.println("总页数:"+pageInfo.getPages());
+		System.out.println("总记录数:"+pageInfo.getTotal());
 		
 		return item;
 	}
