@@ -18,6 +18,8 @@
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
+	
+	
 	<!-- 数据源 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -32,14 +34,28 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- 加载mybatis配置文件 
 		<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>-->
-		<!-- 自动扫描mapping.xml文件 -->  
-       <property name="mapperLocations">
-        	<array>
-        		<value>classpath:sqlmap/*.xml</value>
-        	</array>
-       </property>
+		<!-- 自动扫描mapping.xml文件 
+        <property name="configLocation" value="classpath:mybatis-config.xml" />-->  
+      <property name="mapperLocations" value="classpath:sqlmap/*.xml" />
+      <property name="plugins">
+	    <array>
+	        <bean class="com.github.pagehelper.PageInterceptor">
+	        <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+	             <property name="properties">
+	                 <value>
+	                     helperDialect=mysql
+	                     <!--  reasonable=true
+	                     supportMethodsArguments=true
+	                     params=count=countSql
+	                     autoRuntimeDialect=true -->
+	                 </value>
+	             </property>
+	        </bean>
+	    </array>
+	 </property>
 	</bean>
 	
+
 	<!-- 接口代理开发：扫描接口 
 		* 接口和映射文件必须在同一个目录，且必须同名
 		* 接口方法名必须和Statement的Id一致

@@ -24,7 +24,7 @@ public class ItemServiceImpl implements ItemService {
 		TbItemExample example = new TbItemExample();
 		TbItemExample.Criteria createCriteria = example.createCriteria();
 		//根据Id查询，设置参数
-		createCriteria.andIdEqualTo(itemId);
+//		createCriteria.andIdEqualTo(itemId);
 		
 		List<TbItem> itemList = itemMapper.selectByExample(example);
 		TbItem item = null;
@@ -42,7 +42,11 @@ public class ItemServiceImpl implements ItemService {
 		//7.获取分页信息
 		System.out.println("总页数:"+pageInfo.getPages());
 		System.out.println("总记录数:"+pageInfo.getTotal());
-		System.out.println(111111);
+		for(int i=0;i<list.size();i++){
+			TbItem tb = list.get(i);
+			System.out.println(tb.getTitle());
+		}
+		
 		return item;
 	}
 
