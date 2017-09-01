@@ -21,10 +21,13 @@
 	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
   	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-   		<property name="prefix" value="/WEB-INF/pages/"/>
+   		<property name="prefix" value="/WEB-INF/jsp/"/>
       	<property name="suffix" value=".jsp"/>
   	</bean>
-  	
+  	<!-- 允许访问静态资源 -->
+	<mvc:default-servlet-handler /> 
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
   	<!-- 引用服务 -->
 	<dubbo:application name="taotao-manager-web"/>
 	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->

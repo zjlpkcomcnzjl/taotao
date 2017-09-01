@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.taotao.common.EasyUIResult;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -24,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
 		TbItemExample example = new TbItemExample();
 		TbItemExample.Criteria createCriteria = example.createCriteria();
 		//根据Id查询，设置参数
-//		createCriteria.andIdEqualTo(itemId);
+		createCriteria.andIdEqualTo(itemId);
 		
 		List<TbItem> itemList = itemMapper.selectByExample(example);
 		TbItem item = null;
@@ -32,22 +33,24 @@ public class ItemServiceImpl implements ItemService {
 			item = itemList.get(0);
 		}
 		
-		PageHelper.startPage(1, 10);
+		return item;
+	}
+	@Override
+	public EasyUIResult findItemByPage(Integer page, Integer rows) {
+		
+		TbItemExample example = new TbItemExample();
+		
+		PageHelper.startPage(page, rows);
 		//5.查询
 		List<TbItem> list = itemMapper.selectByExample(example);
 		
 		//6.创建pageInfo对象
 		PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(list);
 		
-		//7.获取分页信息
-		System.out.println("总页数:"+pageInfo.getPages());
-		System.out.println("总记录数:"+pageInfo.getTotal());
-		for(int i=0;i<list.size();i++){
-			TbItem tb = list.get(i);
-			System.out.println(tb.getTitle());
-		}
-		
-		return item;
+		EasyUIResult result = new EasyUIResult();
+		result.setTotal(pageInfo.getTotal());
+		result.setRows(list);
+		return result;
 	}
 
 
