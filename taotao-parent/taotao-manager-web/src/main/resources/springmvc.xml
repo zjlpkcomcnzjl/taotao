@@ -17,7 +17,7 @@
 	
 	<!-- 扫描注解组件并且自动的注入spring beans中 ，使Spring支持自动检测组件，如注解的Controller-->
 	<context:component-scan base-package="com.taotao"/> 
-	
+	<context:property-placeholder location="classpath:*.properties" />
 	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
   	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -34,7 +34,11 @@
 	<!-- 使用dubbo从Zookeeper注册中心获取服务 -->
 	<dubbo:registry protocol="zookeeper" address="192.168.56.132:2181"/>
 	<!-- 引用服务--> 
-	<dubbo:reference interface="com.taotao.service.ItemService" id="itemService" />
-	<dubbo:reference interface="com.taotao.service.ItemCatServiceImpl" id="itemCatServiceImpl" />
+	<dubbo:reference interface="com.taotao.content.service.ContentCategoryService" id="contentCategoryService" timeout="10000" />
+	<dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatService" timeout="10000" />
+    <dubbo:reference interface="com.taotao.service.ItemService" id="itemServiceImpl" timeout="10000"/>
+    <dubbo:reference interface="com.taotao.content.service.ContentService"id="contentService" timeout="10000" />
+
+
 
 </beans>
