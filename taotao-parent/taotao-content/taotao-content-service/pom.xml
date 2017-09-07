@@ -47,6 +47,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<!-- Jackson Json处理工具包 -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
 			<!-- dubbo相关 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -63,6 +69,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient.version}</version>
 			</dependency>
+			<!-- 添加redis客户端 -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+			</dependency>
+
 			<!-- 依赖dao -->
 			<dependency>
 				<groupId>com.taotao</groupId>

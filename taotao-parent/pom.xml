@@ -281,5 +281,6 @@
 		<module>taotao-manager</module>
 		<module>taotao-portal-web</module>
 		<module>taotao-content</module>
+		<module>taotao-search-web</module>
 	</modules>
 </project>
