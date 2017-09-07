@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://code.alibabatech.com/schema/dubbo 
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/mvc  
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"> 
+   <!-- 配置注解驱动的Spring MVC Controller 的编程模型-->
+    <mvc:annotation-driven/>
+	<context:property-placeholder location="classpath:*.properties" />
+	
+	<!-- 扫描注解组件并且自动的注入spring beans中 ，使Spring支持自动检测组件，如注解的Controller-->
+	<context:component-scan base-package="com.taotao"/> 
+	
+	
+	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
+  	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+   		<property name="prefix" value="/WEB-INF/jsp/"/>
+      	<property name="suffix" value=".jsp"/>
+  	</bean>
+  	<!-- 允许访问静态资源 -->
+	<mvc:default-servlet-handler /> 
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/images/" mapping="/images/**"/>
+  	<!-- 引用服务 -->
+	<dubbo:application name="taotao-search-web"/>
+	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
+	<!-- 使用dubbo从Zookeeper注册中心获取服务 -->
+	<dubbo:registry protocol="zookeeper" address="192.168.56.132:2181"/>
+	<!-- 引用服务 
+
+	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" timeout="10000" />-->
+ 
+
+</beans>

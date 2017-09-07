@@ -1,5 +1,7 @@
 /*
 !/taotao-parent/
+!/taotao-search/
+!/taotao-search-web/
 */.project
 */.settings/
 !.gitignore
